@@ -1,0 +1,557 @@
+{
+        "inclusiones": {
+        "fechas": "Fechas importantes:\n- Matrícula: Del 10 al 15 de enero.\n- Exámenes: 1 al 10 de mayo.\n...",
+        "formularios": "Acceso a formularios relevantes:\n- Formulario de becas: https://link_becas\n- Formulario de retiro: https://link_retiro\n...",
+        "periodos": "Periodos de cierre de cursos:\n- Cierre 1: 20 de junio.\n- Cierre 2: 20 de noviembre.\n...",
+        "resultados": "Publicación de resultados académicos:\n- Resultados parciales: 15 de abril.\n- Resultados finales: 30 de junio.\n..."
+    },
+    "movilidad": {
+        "info": "Programas de intercambio y movilidad:\n- Convenio con Universidad X\n- Convenio con Universidad Y\n...",
+        "requisitos": "Requisitos para movilidad:\n- Promedio mínimo: 8.0\n- Cartas de recomendación\n- Nivel de idioma...\n..."
+    },
+    "requisitos_cursos": "Para conocer los requisitos de cada curso, favor revisar plan de estudios completo o consultar con la Escuela...",
+    "horarios_admin": "Horarios de atención:\n- Lunes a Viernes: 8:00 am - 4:30 pm.\n- Oficinas cerradas Sábados y Domingos.",
+    "contacto": {
+      "director": {
+        "nombre": "Milton Villegas Lemus",
+        "telefono": "2550 2052",
+        "correo": "mvilem@tec.ac.cr"
+      },
+      "asistente": {
+        "nombre": "Laura Cortés Ugalde",
+        "telefono": "2550 2052",
+        "correo": "lcortes@tec.ac.cr"
+      }
+    },
+    "plan_estudios": {
+      "titulo": "Licenciatura en Ingeniería en Computadores",
+      "codigo": "2103",
+      "modalidad_academica": "Semestral",
+      "jornada": "Diurno",
+      "sede": "Campus Tecnológico Central Cartago",
+      "grado_academico": "Licenciatura",
+      "ultima_actualizacion": "10 Octubre 2024",
+      "bloques": [
+        {
+          "numero": 0,
+          "cursos": [
+            {
+              "codigo": "CI0205",
+              "nombre": "PRUEBA AVANZADA INGLÉS",
+              "creditos": 0,
+              "horas": 0,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "MA0101",
+              "nombre": "MATEMÁTICA GENERAL",
+              "creditos": 2,
+              "horas": 5,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            }
+          ]
+        },
+        {
+          "numero": 1,
+          "cursos": [
+            {
+              "codigo": "CE1101",
+              "nombre": "INTRODUCCIÓN A LA PROGRAMACIÓN",
+              "creditos": 3,
+              "horas": 9,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE1104",
+              "nombre": "FUNDAMENTOS DE SISTEMAS COMPUTACIONALES",
+              "creditos": 3,
+              "horas": 9,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "CE1101"
+            },
+            {
+              "codigo": "MA1102",
+              "nombre": "CÁLCULO DIFERENCIAL E INTEGRAL",
+              "creditos": 4,
+              "horas": 5,
+              "requisitos": "MA0101",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "MA1403",
+              "nombre": "MATEMÁTICA DISCRETA",
+              "creditos": 4,
+              "horas": 4,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "QU1102",
+              "nombre": "LABORATORIO DE QUÍMICA BÁSICA I",
+              "creditos": 1,
+              "horas": 2,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "QU1106"
+            },
+            {
+              "codigo": "QU1106",
+              "nombre": "QUÍMICA BÁSICA I",
+              "creditos": 3,
+              "horas": 4,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "QU1102"
+            },
+            {
+              "codigo": "SE1100",
+              "nombre": "ACTIVIDAD CULTURAL I",
+              "creditos": 0,
+              "horas": 2,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "SE1200",
+              "nombre": "ACTIVIDAD DEPORTIVA I",
+              "creditos": 0,
+              "horas": 2,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "cursos": [
+            {
+              "codigo": "CE1103",
+              "nombre": "ALGORITMOS Y ESTRUCTURAS DE DATOS I",
+              "creditos": 4,
+              "horas": 12,
+              "requisitos": "CE1101, CE1104, MA1403",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE1105",
+              "nombre": "PRINCIPIOS DE MODELADO EN INGENIERÍA",
+              "creditos": 3,
+              "horas": 9,
+              "requisitos": "CE1104",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CI1403",
+              "nombre": "COMUNICACIÓN TÉCNICA",
+              "creditos": 2,
+              "horas": 4,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "CS1502"
+            },
+            {
+              "codigo": "CS1502",
+              "nombre": "INTRODUCCIÓN A LA TÉCNICA CIENCIA Y TECNOLOGÍA",
+              "creditos": 1,
+              "horas": 2,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "FI1101",
+              "nombre": "FÍSICA GENERAL I",
+              "creditos": 3,
+              "horas": 4,
+              "requisitos": "MA1102",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "FI1201",
+              "nombre": "LABORATORIO FÍSICA GENERAL I",
+              "creditos": 1,
+              "horas": 2,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "FI1101"
+            },
+            {
+              "codigo": "MA1103",
+              "nombre": "CÁLCULO Y ÁLGEBRA LINEAL",
+              "creditos": 4,
+              "horas": 4,
+              "requisitos": "MA1102",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "SE1400",
+              "nombre": "ACTIVIDAD CULTURAL-DEPORTIVA",
+              "creditos": 0,
+              "horas": 2,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "cursos": [
+            {
+              "codigo": "CE2103",
+              "nombre": "ALGORITMOS Y ESTRUCTURAS DE DATOS II",
+              "creditos": 4,
+              "horas": 12,
+              "requisitos": "CE1103, CE1105",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CS2101",
+              "nombre": "AMBIENTE HUMANO",
+              "creditos": 2,
+              "horas": 6,
+              "requisitos": "CI1403",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "EL2113",
+              "nombre": "CIRCUITOS ELÉCTRICOS EN CORRIENTE CONTINUA",
+              "creditos": 4,
+              "horas": 4,
+              "requisitos": "FI1101, MA1102",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "FH1000",
+              "nombre": "CENTROS DE FORMACIÓN HUMANÍSTICA",
+              "creditos": 0,
+              "horas": 2,
+              "requisitos": "NO HAY REQUISITOS EN EL PLAN",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "FI1102",
+              "nombre": "FÍSICA GENERAL II",
+              "creditos": 3,
+              "horas": 4,
+              "requisitos": "FI1101",
+              "correquisitos": "MA1102"
+            },
+            {
+              "codigo": "FI1202",
+              "nombre": "LABORATORIO FÍSICA GENERAL II",
+              "creditos": 1,
+              "horas": 2,
+              "requisitos": "FI1201",
+              "correquisitos": "FI1102"
+            },
+            {
+              "codigo": "MA2104",
+              "nombre": "CÁLCULO SUPERIOR",
+              "creditos": 4,
+              "horas": 4,
+              "requisitos": "MA1103",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            }
+          ]
+        },
+        {
+          "numero": 4,
+          "cursos": [
+            {
+              "codigo": "CE1106",
+              "nombre": "PARADIGMAS DE PROGRAMACIÓN",
+              "creditos": 3,
+              "horas": 9,
+              "requisitos": "CE2103",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE2201",
+              "nombre": "LABORATORIO DE CIRCUITOS ELÉCTRICOS",
+              "creditos": 1,
+              "horas": 3,
+              "requisitos": "FI1202",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "EL2114",
+              "nombre": "CIRCUITOS ELÉCTRICOS EN CORRIENTE ALTERNA",
+              "creditos": 4,
+              "horas": 4,
+              "requisitos": "EL2113",
+              "correquisitos": "EL2207"
+            },
+            {
+              "codigo": "EL2207",
+              "nombre": "ELEMENTOS ACTIVOS",
+              "creditos": 4,
+              "horas": 4,
+              "requisitos": "EL2113",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "PI2609",
+              "nombre": "PROBABILIDAD Y ESTADÍSTICA",
+              "creditos": 2,
+              "horas": 3,
+              "requisitos": "MA2104",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "SO4604",
+              "nombre": "SEGURIDAD Y SALUD OCUPACIONAL",
+              "creditos": 3,
+              "horas": 3,
+              "requisitos": "FI1102",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            }
+          ]
+        },
+        {
+          "numero": 5,
+          "cursos": [
+            {
+              "codigo": "CE1107",
+              "nombre": "FUNDAMENTOS DE ARQUITECTURA DE COMPUTADORES",
+              "creditos": 4,
+              "horas": 12,
+              "requisitos": "EL2207",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE3101",
+              "nombre": "BASES DE DATOS",
+              "creditos": 4,
+              "horas": 12,
+              "requisitos": "CE1106",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE3201",
+              "nombre": "TALLER DE DISEÑO DIGITAL",
+              "creditos": 2,
+              "horas": 6,
+              "requisitos": "CE2201, CE1107",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "MA2105",
+              "nombre": "ECUACIONES DIFERENCIALES",
+              "creditos": 4,
+              "horas": 4,
+              "requisitos": "MA1103",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "PI5516",
+              "nombre": "INGENIERÍA ECONÓMICA",
+              "creditos": 3,
+              "horas": 4,
+              "requisitos": "PI2609",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            }
+          ]
+        },
+        {
+          "numero": 6,
+          "cursos": [
+            {
+              "codigo": "CE1108",
+              "nombre": "COMPILADORES E INTÉRPRETES",
+              "creditos": 4,
+              "horas": 12,
+              "requisitos": "CE1107, CE4301",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE1109",
+              "nombre": "CIRCUITOS ANALÓGICOS",
+              "creditos": 4,
+              "horas": 12,
+              "requisitos": "EL2207, SO4604",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE1110",
+              "nombre": "ANÁLISIS DE SEÑALES MIXTAS",
+              "creditos": 4,
+              "horas": 12,
+              "requisitos": "EL2114, MA2105",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE4301",
+              "nombre": "ARQUITECTURA DE COMPUTADORES I",
+              "creditos": 4,
+              "horas": 12,
+              "requisitos": "CE1107, CE3201",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CI3203",
+              "nombre": "INGLÉS ESPECIALIZADO PARA INGENIERÍAS EN COMPUTADORES",
+              "creditos": 2,
+              "horas": 6,
+              "requisitos": "CI0205",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            }
+          ]
+        },
+        {
+          "numero": 7,
+          "cursos": [
+            {
+              "codigo": "CE1111",
+              "nombre": "ANÁLISIS NUMÉRICO PARA LA INGENIERÍA",
+              "creditos": 3,
+              "horas": 9,
+              "requisitos": "MA2105",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE1112",
+              "nombre": "TALLER DE SEÑALES MIXTAS",
+              "creditos": 3,
+              "horas": 9,
+              "requisitos": "CE1109, CE1110",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE1116",
+              "nombre": "DISEÑO Y CALIDAD EN PRODUCTOS TECNOLÓGICOS",
+              "creditos": 4,
+              "horas": 12,
+              "requisitos": "CE3101, CE4301, PI5516",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE4302",
+              "nombre": "ARQUITECTURA DE COMPUTADORES II",
+              "creditos": 4,
+              "horas": 12,
+              "requisitos": "CE4301",
+              "correquisitos": "CE4303"
+            },
+            {
+              "codigo": "CE4303",
+              "nombre": "PRINCIPIOS DE SISTEMAS OPERATIVOS",
+              "creditos": 4,
+              "horas": 12,
+              "requisitos": "CE1108",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            }
+          ]
+        },
+        {
+          "numero": 8,
+          "cursos": [
+            {
+              "codigo": "AE4208",
+              "nombre": "DESARROLLO DE EMPRENDEDORES",
+              "creditos": 4,
+              "horas": 4,
+              "requisitos": "CS2101",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE1113",
+              "nombre": "SISTEMAS EMPOTRADOS",
+              "creditos": 3,
+              "horas": 9,
+              "requisitos": "CE4303",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE5301",
+              "nombre": "REDES DE COMPUTADORES",
+              "creditos": 4,
+              "horas": 12,
+              "requisitos": "CE1116, CE4303",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE5701",
+              "nombre": "ELECTIVA I",
+              "creditos": 3,
+              "horas": 9,
+              "requisitos": "CE4302, CI3203",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CS3404",
+              "nombre": "SEMINARIO DE ÉTICA PARA LA INGENIERÍA",
+              "creditos": 2,
+              "horas": 5,
+              "requisitos": "CS2101",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            }
+          ]
+        },
+        {
+          "numero": 9,
+          "cursos": [
+            {
+              "codigo": "CE1114",
+              "nombre": "PROYECTO DE APLICACIÓN DE LA INGENIERÍA EN COMPUTADORES",
+              "creditos": 4,
+              "horas": 12,
+              "requisitos": "AE4208, CE1112, CE1113",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE1115",
+              "nombre": "SEGURIDAD DE LA INFORMACIÓN",
+              "creditos": 3,
+              "horas": 9,
+              "requisitos": "CE5301",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE1117",
+              "nombre": "FORMULACIÓN Y GESTIÓN DE PROYECTOS",
+              "creditos": 3,
+              "horas": 9,
+              "requisitos": "CE5301, CE1114",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE5801",
+              "nombre": "ELECTIVA II",
+              "creditos": 3,
+              "horas": 9,
+              "requisitos": "CE5701",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CE5901",
+              "nombre": "ELECTIVA III",
+              "creditos": 3,
+              "horas": 9,
+              "requisitos": "CE5701",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            },
+            {
+              "codigo": "CS4402",
+              "nombre": "SEMINARIO DE ESTUDIOS COSTARRICENSES",
+              "creditos": 2,
+              "horas": 3,
+              "requisitos": "CS3404",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            }
+          ]
+        },
+        {
+          "numero": 10,
+          "cursos": [
+            {
+              "codigo": "CE5601",
+              "nombre": "TRABAJO FINAL DE GRADUACIÓN",
+              "creditos": 12,
+              "horas": 36,
+              "requisitos": "CE1111, CE1114, CE1115, CE1117, CE5801, CE5901, CS4402",
+              "correquisitos": "NO HAY CORREQUISITOS EN EL PLAN"
+            }
+          ]
+        }
+      ]
+    }
+  }
+  
