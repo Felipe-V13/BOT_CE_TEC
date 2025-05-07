@@ -16,6 +16,8 @@ TOKEN = "7627793255:AAGagcyyYeHsNJNuWywX87mbB3yWwfbgetQ"
 # Historial opcional
 history = defaultdict(list)
 
+#-------------Carga De Datos---------------------------------------------------
+
 async def load_data_into_bot_data(application):
     """Carga datos desde 'datos.json' y los guarda en application.bot_data["info"]."""
     with open("datos.json", "r", encoding="utf-8") as f:
@@ -33,22 +35,27 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "¡Hola! Bienvenido al Bot de CES-TEC.\n"
         "Selecciona una sección:"
     )
+    
 
     # Menú principal con InlineKeyboard
     keyboard = [
-        [InlineKeyboardButton("Inclusiones", callback_data="INCLUSIONES")],
-        [InlineKeyboardButton("Movilidad Estudiantil", callback_data="MOVILIDAD")],
-        [InlineKeyboardButton("Requisitos de Cursos", callback_data="REQUISITOS")],
-        [InlineKeyboardButton("Horario Administrativos", callback_data="HORARIOS")],
-        [InlineKeyboardButton("Contacto (Admins)", callback_data="CONTACTO")],
-        [InlineKeyboardButton("Ubicaciones CES", callback_data="UBICACIONES")],
+        [InlineKeyboardButton("📄Inclusiones", callback_data="INCLUSIONES")],
+        [InlineKeyboardButton("🚗 Movilidad Estudiantil", callback_data="MOVILIDAD")],
+        [InlineKeyboardButton("🧾 Requisitos de Cursos", callback_data="REQUISITOS")],
+        [InlineKeyboardButton("🕒 Horario Administrativos", callback_data="HORARIOS")],
+        [InlineKeyboardButton("🧑‍💻 Contacto (Admins)", callback_data="CONTACTO")],
+        [InlineKeyboardButton("📍 Ubicaciones CES", callback_data="UBICACIONES")],
     ]
     markup = InlineKeyboardMarkup(keyboard)
 
     # Guardamos en historial
     history[user_id].append(("bot", text))
-    await update.message.reply_text(text, reply_markup=markup)
-
+    #await update.message.reply_text(text, reply_markup=markup)
+    # Verificación: si es comando (/start) o botón
+    if update.message:
+        await update.message.reply_text(text, reply_markup=markup)
+    elif update.callback_query:
+        await update.callback_query.message.reply_text(text, reply_markup=markup)
 # ----------------------------------------------------------------------------
 # Maneja los botones del menú principal
 # ----------------------------------------------------------------------------
@@ -67,11 +74,11 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     # ------------------------------------------------------------------------
     if choice == "INCLUSIONES":
         keyboard = [
-            [InlineKeyboardButton("Fechas importantes", callback_data="INC_FECHAS")],
-            [InlineKeyboardButton("Formularios", callback_data="INC_FORMULARIOS")],
-            [InlineKeyboardButton("Periodos de cierre", callback_data="INC_PERIODOS")],
-            [InlineKeyboardButton("Resultados académicos", callback_data="INC_RESULTADOS")],
-            [InlineKeyboardButton("Volver al menú principal", callback_data="VOLVER_MENU")]
+            [InlineKeyboardButton("🗓️ Fechas importantes", callback_data="INC_FECHAS")],
+            [InlineKeyboardButton("📝 Formularios", callback_data="INC_FORMULARIOS")],
+            [InlineKeyboardButton("📅 Periodos de cierre", callback_data="INC_PERIODOS")],
+            [InlineKeyboardButton("📊 Resultados académicos", callback_data="INC_RESULTADOS")],
+            [InlineKeyboardButton("🔙 Volver al menú principal", callback_data="VOLVER_MENU")]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         response_text = "Selecciona una opción de Inclusiones:"
@@ -86,10 +93,12 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             response_text = inclusiones.get("periodos", "No hay info de periodos de cierre.")
         elif choice == "INC_RESULTADOS":
             response_text = inclusiones.get("resultados", "No hay info de resultados.")
+        elif query.data == "CERRAR_MENU":
+            await query.edit_message_text("Menú cerrado. ¡Gracias por usar el bot!")
         # Submenú para volver
         keyboard = [
-            [InlineKeyboardButton("Volver a Inclusiones", callback_data="INCLUSIONES")],
-            [InlineKeyboardButton("Menú Principal", callback_data="VOLVER_MENU")]
+            [InlineKeyboardButton("🔙 Volver a Inclusiones", callback_data="INCLUSIONES")],
+            [InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -98,9 +107,9 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     # ------------------------------------------------------------------------
     elif choice == "MOVILIDAD":
         keyboard = [
-            [InlineKeyboardButton("Info Programas", callback_data="MOV_INFO")],
-            [InlineKeyboardButton("Requisitos Movilidad", callback_data="MOV_REQ")],
-            [InlineKeyboardButton("Menú Principal", callback_data="VOLVER_MENU")]
+            [InlineKeyboardButton("🧠 Info Programas", callback_data="MOV_INFO")],
+            [InlineKeyboardButton("🧾 Requisitos Movilidad", callback_data="MOV_REQ")],
+            [InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         response_text = "Movilidad Estudiantil: elige una opción."
@@ -109,8 +118,8 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         mov = data.get("movilidad", {})
         response_text = mov.get("info", "No hay info sobre programas.")
         keyboard = [
-            [InlineKeyboardButton("Volver a Movilidad", callback_data="MOVILIDAD")],
-            [InlineKeyboardButton("Menú Principal", callback_data="VOLVER_MENU")]
+            [InlineKeyboardButton("🔙 Volver a Movilidad", callback_data="MOVILIDAD")],
+            [InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -118,8 +127,8 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         mov = data.get("movilidad", {})
         response_text = mov.get("requisitos", "No hay info de requisitos de movilidad.")
         keyboard = [
-            [InlineKeyboardButton("Volver a Movilidad", callback_data="MOVILIDAD")],
-            [InlineKeyboardButton("Menú Principal", callback_data="VOLVER_MENU")]
+            [InlineKeyboardButton("🔙 Volver a Movilidad", callback_data="MOVILIDAD")],
+            [InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -138,7 +147,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
         # Solo un botón para volver al menú
         keyboard = [
-            [InlineKeyboardButton("Menú Principal", callback_data="VOLVER_MENU")]
+            [InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -149,7 +158,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         horarios = data.get("horarios_admin", "No hay horarios.")
         response_text = horarios
         keyboard = [
-            [InlineKeyboardButton("Menú Principal", callback_data="VOLVER_MENU")]
+            [InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -176,7 +185,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
         response_text = text_director + text_asistente
 
         keyboard = [
-            [InlineKeyboardButton("Menú Principal", callback_data="VOLVER_MENU")]
+            [InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -198,7 +207,7 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             response_text = "Ubicaciones no disponibles en el JSON."
 
         keyboard = [
-            [InlineKeyboardButton("Menú Principal", callback_data="VOLVER_MENU")]
+            [InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -207,12 +216,12 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
     # ------------------------------------------------------------------------
     elif choice == "VOLVER_MENU":
         await query.message.delete()
-        await start_command(query, context)
+        await start_command(update, context) # se cambio esta linea
         return
 
     else:
         response_text = "Opción no reconocida. Volviendo al menú principal."
-        keyboard = [[InlineKeyboardButton("Menú Principal", callback_data="VOLVER_MENU")]]
+        keyboard = [[InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
     history[user_id].append(("bot", response_text))
