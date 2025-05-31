@@ -1,5 +1,6 @@
 import json
 from collections import defaultdict
+from difflib import get_close_matches
 
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
@@ -141,16 +142,9 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             "INTRODUCCIÓN A LA PROGRAMACIÓN) para ver sus requisitos.\n\n"
             "Si deseas cancelar, escribe /cancelar."
         )
-        # Ponemos un "modo" para saber que el siguiente texto que envíe el usuario
-        # es la consulta del curso
         context.user_data["modo"] = "consulta_curso"
-
-        # Solo un botón para volver al menú
-        keyboard = [
-            [InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]
-        ]
+        keyboard = [[InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]]
         reply_markup = InlineKeyboardMarkup(keyboard)
-
     # ------------------------------------------------------------------------
     # HORARIO DE ADMINISTRATIVOS
     # ------------------------------------------------------------------------
@@ -161,32 +155,85 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
             [InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
-
-    # ------------------------------------------------------------------------
+   # ------------------------------------------------------------------------
     # CONTACTO
     # ------------------------------------------------------------------------
     elif choice == "CONTACTO":
+        response_text = "Selecciona un grupo de contactos:"
+        keyboard = [
+            [InlineKeyboardButton("👨‍🏫 Profesores", callback_data="CONTACTO_PROFESORES")],
+            [InlineKeyboardButton("🎓 Asociación Estudiantil", callback_data="CONTACTO_ASOCIACION")],
+            [InlineKeyboardButton("🧑‍💼 Administración CES", callback_data="CONTACTO_ADMIN")],
+            [InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+    elif choice == "CONTACTO_ADMIN":
         contacto = data.get("contacto", {})
         director = contacto.get("director", {})
         asistente = contacto.get("asistente", {})
 
         text_director = (
-            f"Director:\n"
-            f"{director.get('nombre','N/A')}\n"
-            f"Tel: {director.get('telefono','N/A')}\n"
-            f"Correo: {director.get('correo','N/A')}\n\n"
+            f"👨‍🏫 *Director:*\n"
+            f"{director.get('nombre', 'N/A')}\n"
+            f"📞 {director.get('telefono', 'N/A')}\n"
+            f"📧 {director.get('correo', 'N/A')}\n\n"
         )
         text_asistente = (
-            f"Asistente:\n"
-            f"{asistente.get('nombre','N/A')}\n"
-            f"Tel: {asistente.get('telefono','N/A')}\n"
-            f"Correo: {asistente.get('correo','N/A')}\n"
+            f"🧑‍💼 *Asistente:*\n"
+            f"{asistente.get('nombre', 'N/A')}\n"
+            f"📞 {asistente.get('telefono', 'N/A')}\n"
+            f"📧 {asistente.get('correo', 'N/A')}\n"
         )
         response_text = text_director + text_asistente
+        keyboard = [[InlineKeyboardButton("🔙 Volver", callback_data="CONTACTO")]]
+        reply_markup = InlineKeyboardMarkup(keyboard)
 
-        keyboard = [
-            [InlineKeyboardButton("🏠 Menú Principal", callback_data="VOLVER_MENU")]
-        ]
+    elif choice == "CONTACTO_PROFESORES":
+        profesores = data.get("profesores", [])
+        if profesores:
+            texto = "*👨‍🏫 Lista de Profesores:*\n\n"
+            for p in profesores:
+                texto += (
+                    f"{p.get('nombre', 'N/A')}\n"
+                    f"📧 {p.get('correo', 'N/A')}\n"
+                    f"📞 {p.get('telefono', p.get('tel_oficina', 'N/A'))}\n"
+                    f"🏢 Oficina: {p.get('oficina', 'N/A')}\n"
+                    f"🕐 Consulta: {p.get('consulta', 'N/A')}\n\n"
+                )
+        else:
+            texto = "No hay información de profesores registrada en el JSON."
+        response_text = texto
+        keyboard = [[InlineKeyboardButton("🔙 Volver", callback_data="CONTACTO")]]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+    elif choice == "CONTACTO_ASOCIACION":
+        aso = data.get("contacto_asociacion", {})
+        presidente = aso.get("presidente", {})
+        vicepresidente = aso.get("vicepresidente", {})
+        miembros = aso.get("miembros", [])
+
+        texto = "*🎓 Asociación Estudiantil:*\n\n"
+        texto += (
+            f"👔 *Presidente:*\n{presidente.get('nombre', 'N/A')}\n"
+            f"📞 {presidente.get('telefono', 'N/A')}\n"
+            f"📧 {presidente.get('correo', 'N/A')}\n\n"
+        )
+        texto += (
+            f"🤝 *Vicepresidente:*\n{vicepresidente.get('nombre', 'N/A')}\n"
+            f"📞 {vicepresidente.get('telefono', 'N/A')}\n"
+            f"📧 {vicepresidente.get('correo', 'N/A')}\n\n"
+        )
+        texto += "*🧑‍🎓 Otros miembros:*\n"
+        for m in miembros:
+            texto += (
+                f"{m.get('nombre', 'N/A')}\n"
+                f"📧 {m.get('correo', 'N/A')}\n"
+                f"📱 {m.get('telefono', 'N/A')}\n"
+                f"💬 {m.get('telegram', 'N/A')}\n\n"
+            )
+        response_text = texto
+        keyboard = [[InlineKeyboardButton("🔙 Volver", callback_data="CONTACTO")]]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
     # ------------------------------------------------------------------------
@@ -241,49 +288,54 @@ async def handle_text_message(update: Update, context: ContextTypes.DEFAULT_TYPE
 
     modo = context.user_data.get("modo", None)
 
-    # Si estamos en modo búsqueda de curso
+    def buscar_cursos_similares(nombre_o_codigo, lista_cursos, limite=5):
+        nombres = [curso["nombre"] for curso in lista_cursos]
+        codigos = [curso["codigo"] for curso in lista_cursos]
+        todos = nombres + codigos
+        coincidencias = get_close_matches(nombre_o_codigo.upper(), todos, n=limite, cutoff=0.4)
+        resultados = []
+        for match in coincidencias:
+            for curso in lista_cursos:
+                if match == curso["nombre"] or match == curso["codigo"]:
+                    resultados.append(curso)
+        return resultados
+
     if modo == "consulta_curso":
         if text_in.lower() == "/cancelar":
             context.user_data["modo"] = None
             msg = "Operación cancelada. Vuelve al menú principal."
         else:
-            # Buscar el curso por código o por nombre
-            curso_encontrado = None
-            texto_busqueda = text_in.lower()
-
+            todos_cursos = []
             for bloque in bloques:
-                for c in bloque.get("cursos", []):
-                    # Coincide con código (ej. CE1101) o nombre (ej. INTRODUCCIÓN A LA PROGRAMACIÓN)
-                    cod = c.get("codigo", "").lower()
-                    nom = c.get("nombre", "").lower()
-                    if texto_busqueda == cod or texto_busqueda in nom:
-                        curso_encontrado = c
-                        break
-                if curso_encontrado:
-                    break
+                todos_cursos.extend(bloque.get("cursos", []))
 
-            if curso_encontrado:
+            similares = buscar_cursos_similares(text_in.strip(), todos_cursos)
+
+            if len(similares) == 1:
+                c = similares[0]
                 msg = (
-                    f"*{curso_encontrado['codigo']} - {curso_encontrado['nombre']}*\n"
-                    f"Créditos: {curso_encontrado['creditos']}\n"
-                    f"Horas: {curso_encontrado['horas']}\n"
-                    f"Requisitos: {curso_encontrado['requisitos']}\n"
-                    f"Correquisitos: {curso_encontrado['correquisitos']}"
+                    f"*{c['codigo']} - {c['nombre']}*\n"
+                    f"Créditos: {c['creditos']}\n"
+                    f"Horas: {c['horas']}\n"
+                    f"Requisitos: {c['requisitos']}\n"
+                    f"Correquisitos: {c['correquisitos']}"
                 )
+            elif len(similares) > 1:
+                msg = "🔎 Encontré varios cursos similares:\n\n"
+                for c in similares:
+                    msg += f"• *{c['codigo']}* - {c['nombre']}\n"
+                msg += "\nEscribe nuevamente el código o nombre exacto si quieres más detalles."
             else:
                 msg = (
                     f"No encontré un curso que coincida con '{text_in}'. "
                     "Prueba de nuevo o escribe /cancelar para salir."
                 )
-        # Enviamos la respuesta
         history[user_id].append(("bot", msg))
         await update.message.reply_text(msg)
     else:
-        # Si no estamos en modo consulta_curso, simplemente pedimos usar /start
         msg = "Usa /start para ver el menú o selecciona una opción del teclado."
         history[user_id].append(("bot", msg))
         await update.message.reply_text(msg)
-
 # ----------------------------------------------------------------------------
 # main()
 # ----------------------------------------------------------------------------
