@@ -1,37 +1,134 @@
 {
-        "inclusiones": {
-        "fechas": "Fechas importantes:\n- Matrícula: Del 10 al 15 de enero.\n- Exámenes: 1 al 10 de mayo.\n...",
-        "formularios": "Acceso a formularios relevantes:\n- Formulario de becas: https://link_becas\n- Formulario de retiro: https://link_retiro\n...",
-        "periodos": "Periodos de cierre de cursos:\n- Cierre 1: 20 de junio.\n- Cierre 2: 20 de noviembre.\n...",
-        "resultados": "Publicación de resultados académicos:\n- Resultados parciales: 15 de abril.\n- Resultados finales: 30 de junio.\n..."
+  "inclusiones": {
+    "fechas": "Fechas importantes:\n- Matrícula: Del 10 al 15 de enero.\n - Exámenes: 1 al 10 de mayo.\n- Solicitud cita de ubicación para inglés conare: 13 de mayo\n- Matricula para inglés de Conare Bimestre III: 26 y 27 de mayo",
+    "formularios": "Acceso a formularios relevantes:\n- Formulario de becas: https://link_becas\n- Formulario de retiro: https://link_retiro\n...",
+    "periodos": "Periodos de cierre de cursos:\n- Cierre 1: 20 de junio.\n- Cierre 2: 20 de noviembre.\n...",
+    "resultados": "Publicación de resultados académicos:\n- Resultados parciales: 15 de abril.\n- Resultados finales: 30 de junio.\n..."
+  },
+  "movilidad": {
+    "info": "Programas de intercambio y movilidad:\n- Convenio con Universidad X\n- Convenio con Universidad Y\n...",
+    "requisitos": "Requisitos para movilidad:\n- Promedio mínimo: 8.0\n- Cartas de recomendación\n- Nivel de idioma...\n..."
+  },
+  "requisitos_cursos": "Para conocer los requisitos de cada curso, favor revisar plan de estudios completo o consultar con la Escuela...",
+  "horarios_admin": "Horarios de atención:\n- Lunes a Viernes: 8:00 am - 4:30 pm.\n- Oficinas cerradas Sábados y Domingos.",
+  "contacto": {
+    "director": {
+      "nombre": "Milton Villegas Lemus",
+      "telefono": "2550 2052",
+      "correo": "mvilem@tec.ac.cr"
     },
-    "movilidad": {
-        "info": "Programas de intercambio y movilidad:\n- Convenio con Universidad X\n- Convenio con Universidad Y\n...",
-        "requisitos": "Requisitos para movilidad:\n- Promedio mínimo: 8.0\n- Cartas de recomendación\n- Nivel de idioma...\n..."
+    "asistente": {
+      "nombre": "Laura Cortés Ugalde",
+      "telefono": "2550 2052",
+      "correo": "lcortes@tec.ac.cr"
+    }
+  },
+  "contacto_asociacion": {
+    "presidente": {
+      "nombre": "Sebastián Hidalgo",
+      "telefono": "8484-2025",
+      "correo": "hvsebas@estudiantec.cr"
     },
-    "requisitos_cursos": "Para conocer los requisitos de cada curso, favor revisar plan de estudios completo o consultar con la Escuela...",
-    "horarios_admin": "Horarios de atención:\n- Lunes a Viernes: 8:00 am - 4:30 pm.\n- Oficinas cerradas Sábados y Domingos.",
-    "contacto": {
-      "director": {
-        "nombre": "Milton Villegas Lemus",
-        "telefono": "2550 2052",
-        "correo": "mvilem@tec.ac.cr"
+    "vicepresidente": {
+      "nombre": "Luis Felipe Vargas Jiménez",
+      "telefono": "8497-0041",
+      "correo": "felipevargas13@estudiantec.cr"
+    },
+    "miembros": [
+      {
+        "nombre": "César Andrés Mora Fajardo",
+        "correo": "camf@estudiantec.cr",
+        "telegram": "https://t.me/CAMF_CE",
+        "telefono": "8940-5609"
       },
-      "asistente": {
-        "nombre": "Laura Cortés Ugalde",
-        "telefono": "2550 2052",
-        "correo": "lcortes@tec.ac.cr"
+      {
+        "nombre": "Jorge Luis Guillén Campos",
+        "correo": "jorguillen@estudiantec.cr",
+        "telegram": "@j_guillen"
+      },
+      {
+        "nombre": "Adrián Castro Robles",
+        "correo": "adrcastro@estudiantec.cr",
+        "telegram": "@g4nymede"
       }
+    ]
+  },
+  "profesores": [
+    {
+      "nombre": "MBA. Rodolfo Tacsan Chaves",
+      "correo": "rtacsan@itcr.ac.cr",
+      "telefono": "2550-2603",
+      "oficina": "Edificio F2, Oficina 20",
+      "consulta": "Coordinar por Telegram previa cita"
     },
-    "plan_estudios": {
-      "titulo": "Licenciatura en Ingeniería en Computadores",
-      "codigo": "2103",
-      "modalidad_academica": "Semestral",
-      "jornada": "Diurno",
-      "sede": "Campus Tecnológico Central Cartago",
-      "grado_academico": "Licenciatura",
-      "ultima_actualizacion": "10 Octubre 2024",
-      "bloques": [
+    {
+      "nombre": "MGP. Luis Diego Noguera Mena",
+      "correo": "lnoguera@itcr.ac.cr",
+      "telefono": "8823-6765",
+      "tel_oficina": "2550-2566",
+      "oficina": "Edificio F2, Oficina 10",
+      "consulta": "Coordinar por WhatsApp o Telegram"
+    },
+    {
+      "nombre": "Ronald García Fernández",
+      "correo": "ronald.cursos.tec@gmail.com",
+      "telefono": "-",
+      "oficina": "-",
+      "consulta": "Virtual en horario a convenir"
+    },
+    {
+      "nombre": "Luis Alonso Barboza Artavia",
+      "correo": "labarboza@tec.ac.cr",
+      "telefono": "2550-2567",
+      "oficina": "F2-Oficina 11",
+      "consulta": "Jueves 7:30am – 9:30am"
+    },
+    {
+      "nombre": "Jason Leitón Jiménez",
+      "correo": "jleiton@itcr.ac.cr",
+      "telefono": "No especificado",
+      "oficina": "Edificio de Ingeniería en Computadores, Oficina 02",
+      "consulta": "Miércoles de 13:00 a 15:00"
+    },
+    {
+      "nombre": "Leonardo Araya Martínez",
+      "correo": "learaya@itcr.ac.cr",
+      "telefono": "No especificado",
+      "oficina": "Edificio de Ingeniería en Computadores, Oficina 20",
+      "consulta": "Lunes de 7:30 a 12:00"
+    },
+    {
+      "nombre": "Ing. Marco Hernández Vásquez, MSc",
+      "correo": "marco.hernandez@itcr.ac.cr",
+      "correo_alt": "mhernandezvz@gmail.com",
+      "telefono": "No especificado",
+      "oficina": "Edificio F2, Oficina 21",
+      "consulta": "Coordinar en primera clase"
+    },
+    {
+      "nombre": "Ing. Marco Rivera Meneses, MGP",
+      "correo": "marivera@itcr.ac.cr",
+      "telefono": "No especificado",
+      "oficina": "Edificio F2, Oficina 21",
+      "consulta": "Horario y lugar a convenir con el profesor"
+    }
+  ],
+  "ubicaciones": [
+      {
+        "nombre": "CE",
+        "descripcion": "Escuela de Ingeniería en Computadores",
+        "imagen": "imagenes/CE.jpg"
+      }
+  ],
+  "plan_estudios": {
+    "titulo": "Licenciatura en Ingeniería en Computadores",
+    "codigo": "2103",
+    "modalidad_academica": "Semestral",
+    "jornada": "Diurno",
+    "sede": "Campus Tecnológico Central Cartago",
+    "grado_academico": "Licenciatura",
+    "ultima_actualizacion": "10 Octubre 2024",
+    "bloques": [
         {
           "numero": 0,
           "cursos": [
@@ -553,5 +650,4 @@
         }
       ]
     }
-  }
-  
+}
